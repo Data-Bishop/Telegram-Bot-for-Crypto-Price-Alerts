@@ -1,16 +1,12 @@
 from telegram.ext import Updater, CommandHandler, MessageHandler, CallbackContext, Filters
 from telegram import update, ParseMode
-from telegram import chat
 from solana.rpc.api import Client
-from solana.rpc.commitment import Confirmed
 from solders.pubkey import Pubkey
-from solders.rpc.requests import GetTokenLargestAccounts
 from pymongo import MongoClient
 from apscheduler.schedulers.background import BackgroundScheduler
 import requests
 import struct
 import base58
-import asyncio
 from dotenv import load_dotenv
 import os
 import logging
@@ -24,7 +20,7 @@ logging.basicConfig(
     format='%(asctime)s - %(levelname)s: %(message)s'
 )
 
-TELEGRAM_BOT_TOKEN = "7276720313:AAF2h0186K5OU7mc0y9Q2S08fITsFuaAIx4"
+TELEGRAM_BOT_TOKEN = os.getenv('ACCESS_TOKEN')
 metadata_program_id = "metaqbxxUerdq28cj1RbAWkYQm3ybzjb6a8bt518x1s"
 MONGO_CONNECTION_STRING = os.getenv('DB_CONNECTION_STRING')
 
